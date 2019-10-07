@@ -156,9 +156,9 @@ echo "def handle(req):
 Ejecutar el siguiente comando para Buildear
 ```
 cd ..
-faas-cli build -f ./hello-python.yml
+sudo /usr/local/bin/faas-cli build -f ./hello-python.yml
 ```
 Ejecutar el siguiente comando para desplegar
 ```
-faas-cli deploy -f ./hello-python.yml
+sudo /usr/local/bin/faas-cli deploy -f ./hello-python.yml
 ```
