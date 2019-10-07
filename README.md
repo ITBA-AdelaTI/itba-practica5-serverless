@@ -98,7 +98,7 @@ sudo docker swarm init
 Ejecutar el siguiente comando
 ```
 cd faas
-./deploy_stack.sh --no-auth
+sudo ./deploy_stack.sh --no-auth
 ```
 ![alt text](images/Image7.png)
 
