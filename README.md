@@ -76,6 +76,11 @@ sudo docker version
 ```
 ![alt text](images/Image6.png)
 ## 7- Instalar OpenFaaS
+Ejecutar el siguiente comando
+```
+sudo yum install git
+
+```
 ### Installar Open FaaS
 Ejecutar el siguiente comando
 ```
