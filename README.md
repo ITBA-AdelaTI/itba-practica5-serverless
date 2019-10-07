@@ -4,7 +4,7 @@
 ## Indice
 
 * [1-Setup Student AWS](#1-Setup-Student-AWS)
-* [2-Consola / Ohio / Ver VPC](#2-Consola)
+* [2-Consola / US East / Ver VPC](#2-Consola)
 * [3-Crear Instancia](#3-Crear-Instancia)
 * [4-Bajar Credenciales](#4-Bajar-Credenciales)
 * [5-Conectarse a la Instancia](#5-Conectarse-a-la-Instancia)
@@ -82,12 +82,14 @@ Ejecutar el siguiente comando
 git clone https://github.com/openfaas/faas
 
 ```
-## Iniciar Swarm
+
+### Iniciar Swarm
 Ejecutar el siguiente comando
 ```
 sudo docker swarm init
 ```
-## Lanzar OpenFaaS
+
+### Lanzar OpenFaaS
 Ejecutar el siguiente comando
 ```
 $ cd faas
@@ -116,3 +118,51 @@ Elegir del Store, "Figlet" y clicker en "DEPLOY"
 
 Cambiar el "Request Body" y botón "INVOKE"
 ![alt text](images/Image9-2.png)
+
+## 10- Escribir una funcion propia
+
+### Instalar Brew
+```
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
+
+```
+Luego
+```
+test -d ~/.linuxbrew && eval $(~/.linuxbrew/bin/brew shellenv)
+test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+test -r ~/.bash_profile && echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.bash_profile
+echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.profile
+```
+### Instalar el cliente de Open FaaS
+```
+brew install faas-cli
+```
+![alt text](images/Image10-1.png)
+### Crear una funcion propia
+Ejecutar el siguiente comando 
+```
+$ mkdir -p ~/functions && \
+  cd ~/functions
+```
+### Crear el proyecto
+Ejecutar el siguiente comando
+```
+faas-cli new --lang python hello-python
+```
+![alt text](images/Image10-2.png)
+
+### Cambiar el codigo de la Function
+Ejecutar el siguiente comando
+```
+cd hello-python
+```
+Ejecutar el siguiente comando
+```
+echo "def handle(req):
+    print("Hello! You said: " + req)" > handler.py
+```
+Ejecutar el siguiente comando para Buildear
+```
+cd ..
+faas-cli build -f ./hello-python.yml
+```
