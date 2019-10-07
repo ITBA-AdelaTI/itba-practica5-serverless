@@ -126,23 +126,10 @@ Cambiar el "Request Body" y botón "INVOKE"
 
 ## 10- Escribir una funcion propia
 
-### Instalar Brew
-```
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
-
-```
-Luego
-```
-test -d ~/.linuxbrew && eval $(~/.linuxbrew/bin/brew shellenv)
-test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-test -r ~/.bash_profile && echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.bash_profile
-echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.profile
-```
 ### Instalar el cliente de Open FaaS
 ```
-brew install faas-cli
+curl -sSL https://cli.openfaas.com | sudo sh
 ```
-![alt text](images/Image10-1.png)
 ### Crear una funcion propia
 Ejecutar el siguiente comando 
 ```
@@ -154,7 +141,7 @@ Ejecutar el siguiente comando
 ```
 faas-cli new --lang python hello-python
 ```
-![alt text](images/Image10-2.png)
+![alt text](images/Image10-1.png)
 
 ### Cambiar el codigo de la Function
 Ejecutar el siguiente comando
@@ -170,4 +157,8 @@ Ejecutar el siguiente comando para Buildear
 ```
 cd ..
 faas-cli build -f ./hello-python.yml
+```
+Ejecutar el siguiente comando para desplegar
+```
+faas-cli deploy -f ./hello-python.yml
 ```
