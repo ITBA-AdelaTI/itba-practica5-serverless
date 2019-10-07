@@ -148,10 +148,9 @@ Ejecutar el siguiente comando
 ```
 cd hello-python
 ```
-Ejecutar el siguiente comando
+Ejecutar el siguiente comando para bajar el código del Handler
 ```
-echo "def handle(req):
-    print("Hello! You said: " + req)" > handler.py
+curl https://raw.githubusercontent.com/ITBA-AdelaTI/itba-practica5-serverless/master/handler.py > handler.py
 ```
 Ejecutar el siguiente comando para Buildear
 ```
@@ -162,3 +161,5 @@ Ejecutar el siguiente comando para desplegar
 ```
 sudo /usr/local/bin/faas-cli deploy -f ./hello-python.yml
 ```
+Probar la nueva Function desde Open FaaS (en el menu)
+![alt text](images/Image10-2.png)
