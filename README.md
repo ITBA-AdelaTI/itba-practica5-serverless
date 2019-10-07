@@ -97,8 +97,8 @@ sudo docker swarm init
 ### Lanzar OpenFaaS
 Ejecutar el siguiente comando
 ```
-$ cd faas
-$ ./deploy_stack.sh
+cd faas
+./deploy_stack.sh --no-auth
 ```
 ![alt text](images/Image7.png)
 
